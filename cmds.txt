@@ -1,0 +1,110 @@
+Guia resumido dos principais comandos e funcionalidades do Git
+===============================================================
+
+1. Configuração inicial
+-----------------------
+git config --global user.name "Seu Nome"
+git config --global user.email "email@exemplo.com"
+git config --global init.defaultBranch main
+git config --list
+
+2. Criar e clonar repositórios
+------------------------------
+git init
+git clone https://url_do_repo.git
+
+3. Ciclo básico de versionamento
+-------------------------------
+git status
+git add arquivo.txt
+git add .
+git commit -m "Mensagem do commit"
+
+Histórico:
+git log
+git log --oneline --graph --decorate
+
+4. Branches
+-----------
+git branch nova-feature
+git checkout nova-feature
+git checkout -b nova-feature
+git branch
+
+5. Merge e Rebase
+-----------------
+Merge:
+git checkout main
+git merge nova-feature
+
+Rebase:
+git checkout nova-feature
+git rebase main
+
+Histórico visual:
+git log --graph --oneline
+
+6. Sincronização com remotos
+----------------------------
+git remote -v
+git push origin main
+git pull origin main
+git fetch
+
+7. Desfazer mudanças
+--------------------
+git restore --staged arquivo.txt
+git restore arquivo.txt
+
+Reverter commit:
+git revert <hash>
+
+Reset:
+git reset --hard <hash>
+git reset --soft <hash>
+
+8. Stash (guardar alterações temporariamente)
+---------------------------------------------
+git stash
+git stash list
+git stash apply
+git stash pop
+
+9. Inspeção e análise
+---------------------
+git diff
+git diff --staged
+git blame arquivo.txt
+git show <hash>
+
+10. Tags (versões)
+------------------
+git tag v1.0.0
+git tag -a v1.0.0 -m "Release 1.0.0"
+git push origin --tags
+
+Fluxo Git típico (equipes)
+--------------------------
+1. git pull
+2. git checkout -b feature/nome
+3. trabalhar
+4. git add .
+5. git commit -m "mensagem"
+6. git push -u origin feature/nome
+7. Pull Request
+8. Revisão
+9. Merge na main
+
+Resumo dos comandos principais
+------------------------------
+git status
+git add
+git commit -m
+git log --oneline --graph
+git checkout -b
+git merge
+git rebase
+git pull
+git push
+git stash
+git reset / git revert
